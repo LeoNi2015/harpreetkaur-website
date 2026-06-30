@@ -101,7 +101,7 @@ export function Hero() {
             <div className="hero-portrait__ring" aria-hidden="true" />
             <div className="hero-portrait__frame">
               <img
-                src="/harpreet-kaur.png"
+                src={`${import.meta.env.BASE_URL}harpreet-kaur.png`}
                 alt="Harpreet Kaur — Technology Leader"
                 className="hero-portrait__img"
               />

@@ -116,6 +116,25 @@ chmod +x scripts/deploy-gcs.sh
 gcloud storage ls "gs://${BUCKET}/"
 ```
 
+### 3.4 (Optional) Make bucket public for direct testing
+
+Skip this when using only the load balancer. Useful before DNS/SSL is ready:
+
+```bash
+export GCS_BUCKET="$BUCKET"
+chmod +x scripts/make-bucket-public.sh
+./scripts/make-bucket-public.sh
+```
+
+Or via [Cloud Console](https://console.cloud.google.com/storage/browser) → bucket → **Permissions** → **Grant access** → Principal: `allUsers`, Role: **Storage Object Viewer**.
+
+Open in browser:
+
+- `https://storage.googleapis.com/harpreetkaur-website-prd/index.html`
+- `https://storage.googleapis.com/harpreetkaur-website-prd/`
+
+> No Cloud CDN on this URL. Revert public access before production if the bucket should stay private behind the load balancer only.
+
 ---
 
 ## Part 4: GXALB + backend bucket + CDN
