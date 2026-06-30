@@ -66,7 +66,9 @@ export function Hero() {
       <div className="hero-glow" aria-hidden="true" />
       <div className="hero__grid container">
         <div className="hero__content">
-          <p className="hero-eyebrow section-label">Staff Technical Solutions Consultant · Google</p>
+          <p className="hero-eyebrow section-label">
+            {profile.title} · {profile.company}
+          </p>
           <h1 className="hero-title">
             <span className="hero-line">Harpreet</span>
             <span className="hero-line hero-line--accent">Kaur</span>
@@ -74,7 +76,7 @@ export function Hero() {
           <p className="hero-sub">{profile.tagline}</p>
           <p className="hero-headline">{profile.headline}</p>
           <div className="hero-cta">
-            <a href="#story" className="btn btn--primary">
+            <a href="#role" className="btn btn--primary">
               Explore My Story
             </a>
             <a
@@ -102,7 +104,7 @@ export function Hero() {
             <div className="hero-portrait__frame">
               <img
                 src={`${import.meta.env.BASE_URL}harpreet-kaur.png`}
-                alt="Harpreet Kaur — Technology Leader"
+                alt="Harpreet Kaur — Global Applied AI Lead Consultant"
                 className="hero-portrait__img"
               />
               <div className="hero-portrait__overlay" />
@@ -118,7 +120,7 @@ export function Hero() {
         </div>
       </div>
 
-      <a href="#story" className="hero-scroll-indicator" aria-label="Scroll to story">
+      <a href="#role" className="hero-scroll-indicator" aria-label="Scroll to current role">
         <span>Scroll</span>
         <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
           <path

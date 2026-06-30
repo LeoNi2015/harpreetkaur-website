@@ -64,9 +64,9 @@ export function Expertise() {
       <div className="container">
         <header className="expertise-header">
           <p className="section-label">Expertise</p>
-          <h2 className="section-title">What I Bring to the Table</h2>
+          <h2 className="section-title">Applied Generative AI at Enterprise Scale</h2>
           <p className="section-subtitle">
-            Deep technical acumen across cloud, AI, and enterprise architecture — backed by hands-on leadership.
+            From GECX solution delivery to legacy-to-cloud integration — secure, scalable, and outcome-driven.
           </p>
         </header>
 
@@ -81,7 +81,7 @@ export function Expertise() {
         </div>
 
         <div className="skills-cloud">
-          <p className="skills-cloud__label">Core Technologies</p>
+          <p className="skills-cloud__label">Focus Areas</p>
           <div className="skills-cloud__tags">
             {profile.skills.map((skill) => (
               <span key={skill} className="skill-tag">

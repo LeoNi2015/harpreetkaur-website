@@ -139,8 +139,4 @@
     overflow-x: auto;
     padding-bottom: 1rem;
   }
-
-  .journey-track {
-    flex-wrap: nowrap;
-  }
 }

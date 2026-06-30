@@ -1,80 +1,75 @@
 export const profile = {
   name: "Harpreet Kaur",
-  title: "Staff Technical Solutions Consultant",
-  company: "Google",
+  title: "Global Applied AI Lead Consultant",
+  company: "Google Cloud",
   location: "Milpitas, California",
-  tagline: "Accelerating Enterprise AI & Cloud Transformation",
+  tagline:
+    "Defining and executing Generative AI transformation visions for strategic enterprises.",
   headline:
-    "AI Platform Consultant · GenAI · Google Cloud Architect · Cloud Strategy & Innovation",
+    "Generative AI · GECX · Enterprise AI Transformation · Cloud Platform Architecture",
   linkedin: "https://www.linkedin.com/in/hpkaur86/",
-  email: "harpreet.kaur@example.com", // Replace with real contact email
+  contactEmail: "cloudspeakersbureau@google.com",
   stats: [
     { value: "16+", label: "Years in Technology" },
     { value: "600+", label: "Apps Migrated to Cloud" },
     { value: "7+", label: "GCP & GenAI Certifications" },
     { value: "5", label: "Industry Awards" },
   ],
-  story: {
+  currentRole: {
+    label: "Current Role & Responsibilities",
     intro:
-      "From enterprise foundations to the frontier of generative AI — a journey built on empathy, technical depth, and transformational leadership.",
-    chapters: [
-      {
-        year: "2008",
-        title: "The Foundation",
-        text: "Began as a Software Engineer at Sasken, building the technical discipline and curiosity that would define a sixteen-year career across global enterprises.",
-        image:
-          "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&q=80",
-      },
-      {
-        year: "2010–2013",
-        title: "Enterprise Scale",
-        text: "Progressed through Accenture, HCL Technologies, and IBM — mastering middleware, operations, and the art of delivering at enterprise scale.",
-        image:
-          "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&q=80",
-      },
-      {
-        year: "2014–2022",
-        title: "Cloud Transformation at Walmart",
-        text: "Led cloud migrations for 600+ legacy applications, architected multi-cloud solutions on Azure and GCP, and built high-performing cross-functional teams — earning multiple leadership and innovation awards.",
-        image:
-          "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=800&q=80",
-      },
-      {
-        year: "2022–Today",
-        title: "Shaping the Future at Google",
-        text: "As Staff Technical Solutions Consultant, partners with strategic customers on infrastructure and AI projects — driving GenAI adoption, cloud architecture, and enterprise transformation at global scale.",
-        image:
-          "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&q=80",
-      },
+      "Partnering with executive leadership to translate cutting-edge AI into tangible business outcomes.",
+    paragraphs: [
+      "Harpreet partners with executive leadership at strategic enterprise organizations to define and execute their Generative AI transformation visions. She leads the architecture, design, and delivery of large-scale Generative AI Customer Experience (GECX) solutions for major accounts (including Elevance and NextEra), translating cutting-edge AI capabilities into tangible business outcomes.",
+      "Harpreet drives strategic delivery operations within Google Cloud, standardizing deployment methodologies (such as GECX Delivery Process 1.0) and engineering complex data analytics dashboards to provide leadership with deep visibility into pipeline, forecasting, and workforce allocation.",
     ],
+    image:
+      "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&q=80",
   },
-  about: `With over 15 years of experience in IT, I am a confident and empathetic technology leader serving as a Cloud Consultant at Google. My extensive knowledge in Cloud, GenAI, Middleware, and Infrastructure — combined with strong leadership and communication skills — enables me to inspire teams and deliver transformational outcomes.
+  background: {
+    label: "Background",
+    intro:
+      "Bridging legacy enterprise architecture and modern cloud AI — securely, at scale.",
+    paragraphs: [
+      "Harpreet possesses a deep technical background in cloud infrastructure, AI platform architecture, and complex enterprise system integrations. She specializes in bridging the gap between legacy enterprise architecture—such as complex, highly-regulated telephony systems (Cisco CVP, CUBE)—and modern cloud AI technologies.",
+      "Her background focuses on ensuring secure, scalable, and context-aware enterprise migrations that protect critical data while modernizing the customer experience.",
+    ],
+    image:
+      "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&q=80",
+  },
+  linkedinAbout: `With over 15 years of experience in IT, Harpreet is a confident and empathetic technology leader at Google Cloud. Her extensive knowledge in Cloud, GenAI, Middleware, and Infrastructure — combined with strong leadership and communication skills — enables her to inspire teams and deliver transformational outcomes.
 
-At Google, I work with strategic customers on infrastructure and AI projects that drive real business change. Prior to Google, I led successful cloud migrations at Walmart with a customer-centric approach, delivering high-value experiences, migrations, new products, and services.`,
+Prior to Google, she led successful cloud migrations at Walmart with a customer-centric approach, delivering high-value experiences, migrations, new products, and services across 600+ legacy applications.`,
   expertise: [
     {
-      icon: "☁️",
-      title: "Google Cloud Platform",
-      description:
-        "GCP Certified Professional Cloud Architect with hands-on expertise in cloud strategy, migration, and cost optimization.",
-    },
-    {
       icon: "🤖",
-      title: "Generative AI & CCAI",
+      title: "Generative AI Customer Experience (GECX)",
       description:
-        "GenAI Leader certified. Designing conversational AI, contact center solutions, and enterprise AI transformation roadmaps.",
+        "Architecture, design, and delivery of large-scale GECX solutions for strategic enterprise accounts, translating AI capabilities into measurable business outcomes.",
     },
     {
-      icon: "🏗️",
-      title: "Solution Architecture",
+      icon: "☁️",
+      title: "Cloud Infrastructure & AI Platform",
       description:
-        "Multi-cloud architecture across GCP and Azure. Terraform IaC, Kubernetes, and containerized workloads at scale.",
+        "GCP Certified Professional Cloud Architect with hands-on expertise in cloud strategy, migration, AI platform architecture, and cost optimization.",
+    },
+    {
+      icon: "🔗",
+      title: "Legacy-to-Modern Integration",
+      description:
+        "Bridging highly-regulated legacy systems—including Cisco CVP and CUBE telephony—with modern cloud AI technologies.",
     },
     {
       icon: "🚀",
       title: "Cloud Migrations",
       description:
-        "Led migration of 600+ legacy applications. On-premises to cloud, PaaS solutions, and omnichannel streaming platforms.",
+        "Led migration of 600+ legacy applications. Multi-cloud architecture across GCP and Azure with Terraform IaC and Kubernetes at scale.",
+    },
+    {
+      icon: "📊",
+      title: "Strategic Delivery Operations",
+      description:
+        "Standardizing deployment methodologies such as GECX Delivery Process 1.0 and driving operational excellence across AI programs.",
     },
     {
       icon: "👥",
@@ -82,14 +77,32 @@ At Google, I work with strategic customers on infrastructure and AI projects tha
       description:
         "Building and mentoring cross-functional onsite and offshore teams. Agile delivery with a results-oriented mindset.",
     },
-    {
-      icon: "🔧",
-      title: "DevOps & Platform",
-      description:
-        "Jenkins, Ansible, Docker, Kubernetes, GitHub, JIRA. End-to-end platform engineering and automation.",
-    },
+  ],
+  skills: [
+    "Generative AI",
+    "GECX",
+    "Google Cloud Platform",
+    "Contact Center AI",
+    "Terraform",
+    "Kubernetes",
+    "Azure",
+    "BigQuery",
+    "Solution Architecture",
+    "Cloud Migrations",
+    "Cisco CVP",
+    "DevOps",
+    "Agile Leadership",
   ],
   experience: [
+    {
+      company: "Google Cloud",
+      role: "Global Applied AI Lead Consultant",
+      period: "Present",
+      highlight:
+        "GECX solutions for Elevance, NextEra; GenAI transformation and delivery operations.",
+      logo: "G",
+      color: "#4285F4",
+    },
     {
       company: "Google",
       role: "Staff Technical Solutions Consultant",
@@ -159,49 +172,44 @@ At Google, I work with strategic customers on infrastructure and AI projects tha
       color: "#A100FF",
     },
   ],
+  thoughtLeadership: {
+    label: "Thought Leadership",
+    intro:
+      "A recognized thought leader in Applied Generative AI, advising enterprises on the strategic implications of AI.",
+    items: [
+      {
+        icon: "🎤",
+        title: "Reuters Events: Future of Insurance",
+        description: "Active speaker at major industry conferences.",
+      },
+      {
+        icon: "🦈",
+        title: "Innovation Panels",
+        description: "Shark Tank judge for enterprise innovation panels.",
+      },
+      {
+        icon: "🎙️",
+        title: "Industry Podcasts",
+        description: "Regular participant in industry podcasts on enterprise AI.",
+      },
+      {
+        icon: "📝",
+        title: "Technical Publications",
+        description:
+          "Author of technical publications focused on practical, enterprise-grade applications of AI.",
+      },
+    ],
+    advisory:
+      "Frequently advises on the strategic implications of AI in the enterprise, helping leaders move from vision to execution.",
+  },
   certifications: [
-    {
-      name: "Generative AI Leader",
-      issuer: "Google",
-      year: "2025",
-      badge: "genai-leader",
-    },
-    {
-      name: "Gemini Enterprise Level 400 Specialist",
-      issuer: "Google",
-      year: "2025",
-      badge: "gemini",
-    },
-    {
-      name: "Professional Cloud Architect",
-      issuer: "Google Cloud",
-      year: "Certified",
-      badge: "pca",
-    },
-    {
-      name: "Generative AI Fundamentals",
-      issuer: "Google Cloud Skills Boost",
-      year: "2023",
-      badge: "genai-fund",
-    },
-    {
-      name: "CCAI: Conversational Design",
-      issuer: "Google",
-      year: "2023",
-      badge: "ccai",
-    },
-    {
-      name: "AI/ML Foundations",
-      issuer: "Google Cloud",
-      year: "2023",
-      badge: "aiml",
-    },
-    {
-      name: "Oracle Database SQL Associate",
-      issuer: "Oracle",
-      year: "Certified",
-      badge: "oracle",
-    },
+    { name: "Generative AI Leader", issuer: "Google", year: "2025" },
+    { name: "Gemini Enterprise Level 400 Specialist", issuer: "Google", year: "2025" },
+    { name: "Professional Cloud Architect", issuer: "Google Cloud", year: "Certified" },
+    { name: "Generative AI Fundamentals", issuer: "Google Cloud Skills Boost", year: "2023" },
+    { name: "CCAI: Conversational Design", issuer: "Google", year: "2023" },
+    { name: "AI/ML Foundations", issuer: "Google Cloud", year: "2023" },
+    { name: "Oracle Database SQL Associate", issuer: "Oracle", year: "Certified" },
   ],
   awards: [
     { title: "Q2 Horizon Award", org: "Google", year: "2023" },
@@ -216,18 +224,9 @@ At Google, I work with strategic customers on infrastructure and AI projects tha
     degree: "Bachelor's Degree",
     period: "2004 – 2008",
   },
-  skills: [
-    "Google Cloud Platform",
-    "Generative AI",
-    "Terraform",
-    "Kubernetes",
-    "Docker",
-    "Azure",
-    "BigQuery",
-    "Contact Center AI",
-    "Solution Architecture",
-    "Cloud Migrations",
-    "DevOps",
-    "Agile Leadership",
-  ],
+  personal: {
+    label: "Beyond the Technology",
+    paragraph:
+      "Passionate about demystifying AI for business leaders, Harpreet thrives on helping organizations move past the hype to build secure, scalable AI solutions that drive real-world ROI and fundamentally change how they interact with their customers.",
+  },
 };

@@ -15,24 +15,24 @@ export function Credentials() {
   useGSAP(
     () => {
       if (reducedMotion) {
-        gsap.set(".cert-card, .award-item", { opacity: 1, y: 0 });
+        gsap.set(".recognition-card, .cert-card, .award-item", { opacity: 1, y: 0 });
         return;
       }
 
-      gsap.from(".credentials-header", {
-        scrollTrigger: { trigger: ".credentials-header", start: "top 80%" },
-        y: 50,
+      gsap.from(".credentials-block-header", {
+        scrollTrigger: { trigger: sectionRef.current, start: "top 85%" },
+        y: 40,
         opacity: 0,
-        duration: 1,
+        duration: 0.9,
+        stagger: 0.15,
         ease: "power3.out",
       });
 
-      ScrollTrigger.batch(".cert-card", {
+      ScrollTrigger.batch(".recognition-card, .cert-card", {
         onEnter: (elements) => {
           gsap.from(elements, {
             y: 40,
             opacity: 0,
-            rotationY: -15,
             duration: 0.7,
             stagger: 0.08,
             ease: "power3.out",
@@ -59,10 +59,32 @@ export function Credentials() {
     { scope: sectionRef, dependencies: [reducedMotion] }
   );
 
+  const { thoughtLeadership } = profile;
+
   return (
     <section ref={sectionRef} className="credentials" id="credentials">
       <div className="container">
-        <header className="credentials-header">
+        {/* PDF: Thought Leadership */}
+        <header className="credentials-block-header">
+          <p className="section-label">{thoughtLeadership.label}</p>
+          <h2 className="section-title">{thoughtLeadership.intro}</h2>
+        </header>
+
+        <div className="recognition-grid">
+          {thoughtLeadership.items.map((item) => (
+            <article key={item.title} className="recognition-card">
+              <span className="recognition-card__icon">{item.icon}</span>
+              <h3 className="recognition-card__title">{item.title}</h3>
+              <p className="recognition-card__desc">{item.description}</p>
+            </article>
+          ))}
+        </div>
+        <p className="recognition-advisory">{thoughtLeadership.advisory}</p>
+
+        {/* LinkedIn: Certifications, Awards, Education */}
+        <div className="credentials-divider" />
+
+        <header className="credentials-block-header">
           <p className="section-label">Credentials & Recognition</p>
           <h2 className="section-title">Certified. Awarded. Trusted.</h2>
         </header>
@@ -93,7 +115,7 @@ export function Credentials() {
             </div>
           </div>
 
-          <div className="credentials-awards">
+          <div className="credentials-side">
             <h3 className="credentials-subtitle">Awards & Honors</h3>
             <ul className="awards-list">
               {profile.awards.map((award) => (

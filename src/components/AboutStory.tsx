@@ -8,6 +8,11 @@ import "./AboutStory.css";
 
 gsap.registerPlugin(ScrollTrigger);
 
+const sections = [
+  { id: "role", data: profile.currentRole },
+  { id: "background", data: profile.background },
+];
+
 export function AboutStory() {
   const sectionRef = useRef<HTMLElement>(null);
   const reducedMotion = usePrefersReducedMotion();
@@ -15,39 +20,24 @@ export function AboutStory() {
   useGSAP(
     () => {
       if (reducedMotion) {
-        gsap.set(".story-chapter, .story-about", { opacity: 1, y: 0 });
+        gsap.set(".story-chapter, .story-personal", { opacity: 1, y: 0 });
         return;
       }
 
       gsap.from(".story-header", {
-        scrollTrigger: {
-          trigger: ".story-header",
-          start: "top 80%",
-        },
+        scrollTrigger: { trigger: ".story-header", start: "top 80%" },
         y: 60,
         opacity: 0,
         duration: 1,
         ease: "power3.out",
       });
 
-      gsap.from(".story-about", {
-        scrollTrigger: {
-          trigger: ".story-about",
-          start: "top 85%",
-        },
-        y: 40,
-        opacity: 0,
-        duration: 0.9,
-        ease: "power3.out",
-      });
-
-      profile.story.chapters.forEach((_, i) => {
+      sections.forEach((_, i) => {
         const chapter = `.story-chapter:nth-child(${i + 1})`;
         const tl = gsap.timeline({
           scrollTrigger: {
             trigger: chapter,
             start: "top 75%",
-            end: "bottom 25%",
             toggleActions: "play none none reverse",
           },
         });
@@ -69,45 +59,62 @@ export function AboutStory() {
           "-=0.6"
         );
       });
+
+      gsap.from(".story-personal", {
+        scrollTrigger: { trigger: ".story-personal", start: "top 85%" },
+        y: 40,
+        opacity: 0,
+        duration: 0.9,
+        ease: "power3.out",
+      });
     },
     { scope: sectionRef, dependencies: [reducedMotion] }
   );
 
   return (
-    <section ref={sectionRef} className="story" id="story">
+    <section ref={sectionRef} className="story">
       <div className="container">
         <header className="story-header">
-          <p className="section-label">My Story</p>
-          <h2 className="section-title">{profile.story.intro}</h2>
+          <p className="section-label">About</p>
+          <h2 className="section-title">
+            Enterprise Generative AI Leadership at Google Cloud
+          </h2>
+          <p className="section-subtitle story-header__about">
+            {profile.linkedinAbout.split("\n\n")[0]}
+          </p>
         </header>
 
-        <div className="story-about">
-          {profile.about.split("\n\n").map((para, i) => (
-            <p key={i}>{para}</p>
-          ))}
-        </div>
-
         <div className="story-chapters">
-          {profile.story.chapters.map((chapter, i) => (
+          {sections.map(({ id, data }, i) => (
             <article
-              key={chapter.year}
+              key={id}
+              id={id}
               className={`story-chapter ${i % 2 === 1 ? "story-chapter--reverse" : ""}`}
             >
               <div className="story-chapter__image-wrap">
                 <img
-                  src={chapter.image}
-                  alt={chapter.title}
+                  src={data.image}
+                  alt={data.label}
                   className="story-chapter__image"
                   loading="lazy"
                 />
-                <div className="story-chapter__year">{chapter.year}</div>
+                <div className="story-chapter__year">{data.label}</div>
               </div>
               <div className="story-chapter__content">
-                <h3 className="story-chapter__title">{chapter.title}</h3>
-                <p className="story-chapter__text">{chapter.text}</p>
+                <h3 className="story-chapter__title">{data.intro}</h3>
+                {data.paragraphs.map((para, j) => (
+                  <p key={j} className="story-chapter__text">
+                    {para}
+                  </p>
+                ))}
               </div>
             </article>
           ))}
+        </div>
+
+        <div className="story-personal" id="personal">
+          <p className="section-label">{profile.personal.label}</p>
+          <p className="story-personal__text">{profile.personal.paragraph}</p>
         </div>
       </div>
     </section>

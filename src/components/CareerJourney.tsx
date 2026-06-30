@@ -21,10 +21,7 @@ export function CareerJourney() {
       }
 
       gsap.from(".journey-header", {
-        scrollTrigger: {
-          trigger: ".journey-header",
-          start: "top 80%",
-        },
+        scrollTrigger: { trigger: ".journey-header", start: "top 80%" },
         y: 50,
         opacity: 0,
         duration: 1,
@@ -73,9 +70,7 @@ export function CareerJourney() {
       <div className="journey-header container">
         <p className="section-label">Career Journey</p>
         <h2 className="section-title">Sixteen Years of Impact</h2>
-        <p className="section-subtitle">
-          From software engineering foundations to leading enterprise AI transformation at Google.
-        </p>
+        <p className="section-subtitle">{profile.linkedinAbout.split("\n\n")[0]}</p>
       </div>
 
       <div className="journey-track-wrap">
