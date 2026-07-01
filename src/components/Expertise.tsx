@@ -8,53 +8,78 @@ import "./Expertise.css";
 
 gsap.registerPlugin(ScrollTrigger);
 
+function animateOnScroll(
+  scope: HTMLElement,
+  selector: string,
+  reducedMotion: boolean,
+  extraFrom: gsap.TweenVars = {}
+) {
+  const elements = scope.querySelectorAll(selector);
+  if (!elements.length) return;
+
+  if (reducedMotion) {
+    gsap.set(elements, { opacity: 1, y: 0, x: 0, scale: 1 });
+    return;
+  }
+
+  elements.forEach((el, i) => {
+    gsap.fromTo(
+      el,
+      { opacity: 0, y: 40, scale: 0.98, ...extraFrom },
+      {
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        x: 0,
+        duration: 0.65,
+        delay: (i % 3) * 0.06,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: el,
+          start: "top 92%",
+          once: true,
+        },
+      }
+    );
+  });
+}
+
 export function Expertise() {
   const sectionRef = useRef<HTMLElement>(null);
   const reducedMotion = usePrefersReducedMotion();
 
   useGSAP(
     () => {
+      const scope = sectionRef.current;
+      if (!scope) return;
+
       if (reducedMotion) {
-        gsap.set(".expertise-card, .skill-tag", { opacity: 1, y: 0, scale: 1 });
+        gsap.set(scope.querySelectorAll(".expertise-header, .expertise-card, .skill-tag"), {
+          opacity: 1,
+          y: 0,
+          scale: 1,
+        });
         return;
       }
 
-      gsap.from(".expertise-header", {
-        scrollTrigger: { trigger: ".expertise-header", start: "top 80%" },
-        y: 50,
-        opacity: 0,
-        duration: 1,
-        ease: "power3.out",
-      });
+      gsap.fromTo(
+        scope.querySelector(".expertise-header"),
+        { y: 40, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.8,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: scope.querySelector(".expertise-header"),
+            start: "top 85%",
+            once: true,
+          },
+        }
+      );
 
-      ScrollTrigger.batch(".expertise-card", {
-        onEnter: (elements) => {
-          gsap.from(elements, {
-            y: 50,
-            opacity: 0,
-            scale: 0.95,
-            duration: 0.7,
-            stagger: 0.1,
-            ease: "power3.out",
-          });
-        },
-        start: "top 85%",
-        once: true,
-      });
-
-      ScrollTrigger.batch(".skill-tag", {
-        onEnter: (elements) => {
-          gsap.from(elements, {
-            scale: 0,
-            opacity: 0,
-            duration: 0.5,
-            stagger: 0.04,
-            ease: "back.out(1.7)",
-          });
-        },
-        start: "top 90%",
-        once: true,
-      });
+      animateOnScroll(scope, ".expertise-card", reducedMotion);
+      animateOnScroll(scope, ".skill-tag", reducedMotion, { scale: 0.9 });
     },
     { scope: sectionRef, dependencies: [reducedMotion] }
   );

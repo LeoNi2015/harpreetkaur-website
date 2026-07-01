@@ -8,53 +8,113 @@ import "./Credentials.css";
 
 gsap.registerPlugin(ScrollTrigger);
 
+function animateCards(
+  scope: HTMLElement,
+  selector: string,
+  reducedMotion: boolean,
+  fromVars: gsap.TweenVars = { y: 30, opacity: 0 }
+) {
+  const elements = scope.querySelectorAll(selector);
+  if (!elements.length) return;
+
+  if (reducedMotion) {
+    gsap.set(elements, { opacity: 1, y: 0, x: 0 });
+    return;
+  }
+
+  elements.forEach((el, i) => {
+    gsap.fromTo(
+      el,
+      fromVars,
+      {
+        opacity: 1,
+        y: 0,
+        x: 0,
+        duration: 0.65,
+        delay: (i % 2) * 0.05,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: el,
+          start: "top 92%",
+          once: true,
+        },
+      }
+    );
+  });
+}
+
 export function Credentials() {
   const sectionRef = useRef<HTMLElement>(null);
   const reducedMotion = usePrefersReducedMotion();
 
   useGSAP(
     () => {
+      const scope = sectionRef.current;
+      if (!scope) return;
+
       if (reducedMotion) {
-        gsap.set(".recognition-card, .cert-card, .award-item", { opacity: 1, y: 0 });
+        gsap.set(
+          scope.querySelectorAll(
+            ".credentials-block-header, .recognition-card, .recognition-advisory, .cert-card, .award-item, .education-card"
+          ),
+          { opacity: 1, y: 0, x: 0 }
+        );
         return;
       }
 
-      gsap.from(".credentials-block-header", {
-        scrollTrigger: { trigger: sectionRef.current, start: "top 85%" },
-        y: 40,
-        opacity: 0,
-        duration: 0.9,
-        stagger: 0.15,
-        ease: "power3.out",
+      scope.querySelectorAll(".credentials-block-header").forEach((header) => {
+        gsap.fromTo(
+          header,
+          { y: 30, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.8,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: header,
+              start: "top 88%",
+              once: true,
+            },
+          }
+        );
       });
 
-      ScrollTrigger.batch(".recognition-card, .cert-card", {
-        onEnter: (elements) => {
-          gsap.from(elements, {
-            y: 40,
-            opacity: 0,
-            duration: 0.7,
-            stagger: 0.08,
-            ease: "power3.out",
-          });
-        },
-        start: "top 85%",
-        once: true,
-      });
+      animateCards(scope, ".recognition-card", reducedMotion);
+      animateCards(scope, ".cert-card", reducedMotion);
+      animateCards(scope, ".award-item", reducedMotion, { x: -20, opacity: 0 });
 
-      ScrollTrigger.batch(".award-item", {
-        onEnter: (elements) => {
-          gsap.from(elements, {
-            x: -30,
-            opacity: 0,
-            duration: 0.6,
-            stagger: 0.1,
-            ease: "power3.out",
-          });
-        },
-        start: "top 90%",
-        once: true,
-      });
+      gsap.fromTo(
+        scope.querySelector(".recognition-advisory"),
+        { y: 20, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.7,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: scope.querySelector(".recognition-advisory"),
+            start: "top 92%",
+            once: true,
+          },
+        }
+      );
+
+      gsap.fromTo(
+        scope.querySelector(".education-card"),
+        { y: 20, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.7,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: scope.querySelector(".education-card"),
+            start: "top 92%",
+            once: true,
+          },
+        }
+      );
     },
     { scope: sectionRef, dependencies: [reducedMotion] }
   );
@@ -64,7 +124,6 @@ export function Credentials() {
   return (
     <section ref={sectionRef} className="credentials" id="credentials">
       <div className="container">
-        {/* PDF: Thought Leadership */}
         <header className="credentials-block-header">
           <p className="section-label">{thoughtLeadership.label}</p>
           <h2 className="section-title">{thoughtLeadership.intro}</h2>
@@ -81,7 +140,6 @@ export function Credentials() {
         </div>
         <p className="recognition-advisory">{thoughtLeadership.advisory}</p>
 
-        {/* LinkedIn: Certifications, Awards, Education */}
         <div className="credentials-divider" />
 
         <header className="credentials-block-header">
