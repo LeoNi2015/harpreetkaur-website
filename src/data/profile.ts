@@ -20,7 +20,7 @@ export const profile = {
     intro:
       "Partnering with executive leadership to translate cutting-edge AI into tangible business outcomes.",
     paragraphs: [
-      "Harpreet partners with executive leadership at strategic enterprise organizations to define and execute their Generative AI transformation visions. She leads the architecture, design, and delivery of large-scale Generative AI Customer Experience (GECX) solutions for major accounts (including Elevance and NextEra), translating cutting-edge AI capabilities into tangible business outcomes.",
+      "Harpreet partners with executive leadership at strategic enterprise organizations to define and execute their Generative AI transformation visions. She leads the architecture, design, and delivery of large-scale Generative AI Customer Experience (GECX) solutions for major accounts, translating cutting-edge AI capabilities into tangible business outcomes.",
       "Harpreet drives strategic delivery operations within Google Cloud, standardizing deployment methodologies (such as GECX Delivery Process 1.0) and engineering complex data analytics dashboards to provide leadership with deep visibility into pipeline, forecasting, and workforce allocation.",
     ],
     image:
@@ -99,7 +99,7 @@ Prior to Google, she led successful cloud migrations at Walmart with a customer-
       role: "Global Applied AI Lead Consultant",
       period: "Present",
       highlight:
-        "GECX solutions for Elevance, NextEra; GenAI transformation and delivery operations.",
+        "GECX solutions for major accounts; GenAI transformation and delivery operations.",
       logo: "G",
       color: "#4285F4",
     },
